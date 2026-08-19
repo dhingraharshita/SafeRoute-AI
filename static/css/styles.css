@@ -1,0 +1,244 @@
+/* =========================================================
+   SAFEROUTE AI — PREMIUM SAFETY COMPANION STYLESHEET
+   Cyber-Safety Dark Aesthetics & Visual Hierarchy
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg-primary: #070b14;
+  --bg-secondary: #0d1527;
+  --bg-card: rgba(15, 23, 42, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.95);
+  --border-color: rgba(51, 65, 85, 0.6);
+  --border-glow: rgba(56, 189, 248, 0.25);
+  
+  --safe-green: #10b981;
+  --safe-glow: rgba(16, 185, 129, 0.35);
+  --caution-amber: #f59e0b;
+  --caution-glow: rgba(245, 158, 11, 0.35);
+  --danger-red: #f43f5e;
+  --danger-glow: rgba(244, 63, 94, 0.45);
+  
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Cyber ambient background grid */
+.cyber-bg-grid {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Glassmorphism surface */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-subtle {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+/* Neon glow indicators */
+.glow-safe {
+  box-shadow: 0 0 20px var(--safe-glow);
+  border-color: var(--safe-green);
+}
+
+.glow-caution {
+  box-shadow: 0 0 25px var(--caution-glow);
+  border-color: var(--caution-amber);
+}
+
+.glow-danger {
+  box-shadow: 0 0 35px var(--danger-glow);
+  border-color: var(--danger-red);
+}
+
+/* SOS Pulsating Ring */
+@keyframes sosPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7), 0 0 25px rgba(244, 63, 94, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 22px rgba(244, 63, 94, 0), 0 0 45px rgba(244, 63, 94, 1);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0), 0 0 25px rgba(244, 63, 94, 0.8);
+    transform: scale(1);
+  }
+}
+
+.sos-button-pulse {
+  animation: sosPulse 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* User map marker radar pulse */
+.user-beacon-pulse {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.user-beacon-pulse::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.4);
+  animation: radarWave 2s infinite ease-out;
+}
+
+.user-beacon-pulse::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #06b6d4;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 14px #06b6d4;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Leaflet Map overrides for dark cyber aesthetic */
+.leaflet-container {
+  background-color: #0b111e !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid #334155 !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border-color: #334155 !important;
+}
+.leaflet-control-zoom a:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+/* Full Emergency Strobe Overlay */
+.emergency-strobe-active {
+  animation: screenStrobe 1.2s infinite alternate;
+}
+
+@keyframes screenStrobe {
+  0% {
+    box-shadow: inset 0 0 40px rgba(244, 63, 94, 0.4);
+    border-color: rgba(244, 63, 94, 0.8);
+  }
+  100% {
+    box-shadow: inset 0 0 100px rgba(244, 63, 94, 0.9), 0 0 60px rgba(244, 63, 94, 0.8);
+    border-color: #f43f5e;
+  }
+}
+
+/* Risk score gauge radial animation */
+.gauge-circle-bg {
+  fill: none;
+  stroke: #1e293b;
+  stroke-width: 8;
+}
+
+.gauge-circle-progress {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.6s ease;
+}
+
+/* Chip tag hover & badges */
+.factor-chip {
+  transition: all 0.2s ease-in-out;
+}
+.factor-chip:hover {
+  transform: translateY(-1px);
+}
+
+/* Bottom floating nav on mobile */
+@media (max-width: 768px) {
+  .mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+}
